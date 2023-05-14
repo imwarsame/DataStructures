@@ -1,17 +1,20 @@
 #Given an integer array nums, return true if any value appears at least twice in the array, and return false if every element is distinct.
 
-function Contains-Duplicate ([string[]]$array)
-{
-    $ht = @{}
+function Contains-Duplicate {
+    param (
+        [Parameter(Mandatory=$true)]
+        [int[]]$nums
+    )
 
-    foreach ($item in $array) {
-        if ($ht -contains $item) {
-            return true
+    $hashset = @{}
+
+    foreach ($n in $nums) {
+        if ($hashset.ContainsKey($n)) {
+            return $true
         }
-        $ht.add($item)
-    return false
+
+        $hashset[$n] = $true
     }
+
+    return $false
 }
-
-
-
