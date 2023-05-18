@@ -4,7 +4,7 @@ class Solution {
     [bool] IsAnagram([string] $s, [string] $t) {
         # If the lengths of the strings are not equal, they cannot be anagrams
         if ($s.Length -ne $t.Length) {
-            return $false.
+            return $false
         }
 
         $countS = @{}  # Hashtable to store the count of each letter in string $s
