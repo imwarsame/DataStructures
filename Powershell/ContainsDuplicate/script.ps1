@@ -3,18 +3,21 @@
 function Contains-Duplicate {
     param (
         [Parameter(Mandatory=$true)]
-        [int[]]$nums
+        [int[]]$numbers
     )
 
-    $hashset = @{}
+    $hashset = @{}  # Hashtable to store encountered numbers
 
-    foreach ($n in $nums) {
-        if ($hashset.ContainsKey($n)) {
+    foreach ($number in $numbers) {
+        if ($hashset.ContainsKey($number)) {
+            # A duplicate number has been found
             return $true
         }
 
-        $hashset[$n] = $true
+        $hashset[$number] = $true  # Add the number to the hashtable
     }
 
+    # No duplicates found
     return $false
 }
+
