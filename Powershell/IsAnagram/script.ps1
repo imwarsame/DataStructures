@@ -7,15 +7,16 @@ class Solution {
             return $false.
         }
 
-        $countS = @{}
-        $countT = @{}
+        $countS = @{}  # Hashtable to store the count of each letter in string $s
+        $countT = @{}  # Hashtable to store the count of each letter in string $t
 
         for ($i = 0; $i -lt $s.Length; $i++) {
-            # count how many times each letter appears in the two hashmaps.They should match.
-            $countS[$s[$i]] = 1 + $countS.Get_Item($s[$i]) 
-            $countT[$t[$i]] = 1 + $countT.Get_Item($t[$i])
+            # Count how many times each letter appears in the two hashmaps. They should match.
+            $countS[$s[$i]] = 1 + $countS.Get_Item($s[$i])  # Increment the count of letter $s[$i] in $countS
+            $countT[$t[$i]] = 1 + $countT.Get_Item($t[$i])  # Increment the count of letter $t[$i] in $countT
         }
 
-        return $countS.Equals($countT)
+        return $countS.Equals($countT)  # Compare the two hashmaps to determine if they have the same letter counts
     }
 }
+
